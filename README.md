@@ -9,32 +9,26 @@ Project Description
 [2-3 lines about what your project does]
 
 The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+[SOCIAL meme anxiety?]
 
 The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+[makes them more attached to meme culture]
 
 Technical Details
 Technologies/Components Used
 For Software:
 
-[Languages used]
-[Frameworks used]
-[Libraries used]
-[Tools used]
-For Hardware:
+[HTML, CSS ,JS]
+[ChatGpt-5, claude sonnet-4, canva, giphy]
 
-[List main components]
-[List specifications]
-[List tools required]
 Implementation
 For Software:
 
 Installation
-[commands]
+[pre installed html and js css commands]
 
 Run
-[commands]
+[]
 
 Project Documentation
 For Software:
