@@ -2,120 +2,1052 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bumblebee MemeBot (Offline)</title>
+  <title>🤖 DuMBle BEE - Meme Bot</title>
   <style>
-    body { font-family: Arial; background-color: #111; color: #fff; text-align: center; padding: 40px; }
-    input, button { padding: 10px; font-size: 16px; margin: 10px; border-radius: 5px; border: none; }
-    input { width: 60%; }
-    button { background-color: #ffc107; cursor: pointer; }
-    button:hover { background-color: #ff9800; }
-    img, video, audio { margin-top: 20px; max-width: 90%; border-radius: 10px; }
-  </style>
-</head>
-<body>
-  <h1>✨ Bumblebee MemeBot (Offline Version) ✨</h1>
-  <input type="text" id="userInput" placeholder="Say something..." />
-  <button onclick="handleUserInput()">Send</button>
-  <button onclick="startVoiceRecognition()">🎤 Speak</button>
-  <p id="status"></p>
-  <div id="memeResult"></div>
-
-  <script>
-    const memeLibrary = {
-  sad: {
-    title: "SRK Crying",
-    type: "gif",
-    file: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaW13dDQweml6NGtvd3p2cGEzZGJ2N3Y2ZWVmaDVtZWloc21ydGhrdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d2lcHJTG5Tscg/giphy.gif"
-  },
-  happy: {
-    title: "Allu Arjun Dance",
-    type: "gif",
-    file: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3kzaWZyMWl5ZTNjNW16NzN2NGloYWlhdWs2MjNlZjAzODNheWY5ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2gLxx75OmfCaNu2yI8/giphy.gif"
-  },
-  angry: {
-    title: "Vijay Sethupathi Intense",
-    type: "gif",
-    file: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnlqOWt2aWlsY3VqdGZpbXl2azEzNzdiMHN2MnVsem5mMnQ0MjRlNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/11tTNkNy1SdXGg/giphy.gif"
-  },
-  love: {
-    title: "Kabir Singh Scene",
-    type: "gif",
-    file: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWN5bnFrdjllNnN4eGQ3d3ZqMDZpdmJ6b3kwNDJ6Z2dsYTZ4MmR5cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7OVCzw8yy9IgaLgW1A/giphy.gif"
-  },
-  sarcasm: {
-    title: "Vadivelu Reaction",
-    type: "gif",
-    file: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYW9nY29jd29zYWM4enVzdzU0MTJkOXEzdWUyNnRnYWdmZDRobjdxaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26n7aXfN2TGsJLYC4/giphy.gif"
-  },
-  excited: {
-    title: "KGF BGM",
-    type: "gif",
-    file: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2NlZzlnaXl1cGk3bXo4NWpoM2V2MTBmbDJzNm5mMXlyajg4NnU5aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K1wWpRWxRc2FseMy5f/giphy.gif"
-  },
-  confused: {
-    title: "Mr. Bean Confused",
-    type: "gif",
-    file: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzBnNXhyYWd4bThjbGM2MzlsajJnbXl4enB6cmZvcGUxcDJlMmw5NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/U6vLDuMCTRarOwcf7S/giphy.gif"
-  },
-  random: {
-    title: "Surprise Meme",
-    type: "gif",
-    file: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDUzcGRoMXZjdG45OWV1czgxejFubXJnMmo4bWdkZTM3N3dndGdzMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PUBxelwT57jsQ/giphy.gif"
-  }
-};
-
-    function getTagFromTextOffline(userText) {
-      const text = userText.toLowerCase();
-
-      if (text.includes("sad") || text.includes("cry") || text.includes("depressed")) return "sad";
-      if (text.includes("happy") || text.includes("joy") || text.includes("yay")) return "happy";
-      if (text.includes("angry") || text.includes("mad") || text.includes("rage") || text.includes("nonsense")) return "angry";
-      if (text.includes("love") || text.includes("crush") || text.includes("heart")) return "love";
-      if (text.includes("sarcasm") || text.includes("funny") || text.includes("ironic")) return "sarcasm";
-      if (text.includes("excited") || text.includes("awesome") || text.includes("hyped")) return "excited";
-      if (text.includes("confused") || text.includes("what") || text.includes("eh")) return "confused";
-
-      return "random";
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Comic+Neue:wght@400;700&family=Orbitron:wght@400;700;900&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body { 
+      font-family: 'Comic Neue', cursive;
+      background: linear-gradient(135deg, #D2B48C, #DEB887, #F5DEB3, #D2B48C);
+      background-size: 400% 400%;
+      animation: sand-shift 10s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    @keyframes sand-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Large Animated Heading */
+    .main-heading {
+      position: absolute;
+      top: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Orbitron', monospace;
+      font-size: 5rem;
+      font-weight: 900;
+      background: linear-gradient(45deg, #FFD700, #FF6B35, #F7931E, #FFD700, #FF1493, #00CED1);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.8),
+        0 0 40px rgba(255, 107, 53, 0.6),
+        0 0 60px rgba(247, 147, 30, 0.4);
+      z-index: 100;
+      animation: heading-glow 4s ease-in-out infinite, heading-float 5s ease-in-out infinite;
+      text-align: center;
+      letter-spacing: 8px;
+      cursor: pointer;
+      user-select: none;
     }
 
-    function handleUserInput() {
-      const text = document.getElementById('userInput').value;
-      if (!text) return;
-      document.getElementById('status').innerText = 'Thinking...';
-
-      const tag = getTagFromTextOffline(text);
-      document.getElementById('status').innerText = `Tag: ${tag}`;
-      showEmbeddedMeme(tag);
-    }
-
-    function showEmbeddedMeme(tag) {
-      const meme = memeLibrary[tag] || memeLibrary['random'];
-      const container = document.getElementById('memeResult');
-
-      if (meme.type === 'gif') {
-        container.innerHTML = `<img src="${meme.file}" alt="${meme.title}">`;
-      } else if (meme.type === 'video') {
-        container.innerHTML = `<video controls autoplay><source src="${meme.file}" type="video/mp4"></video>`;
-      } else if (meme.type === 'audio') {
-        container.innerHTML = `<p>${meme.title}</p><audio controls autoplay src="${meme.file}"></audio>`;
+    @keyframes heading-glow {
+      0%, 100% { 
+        background-position: 0% 50%;
+        filter: drop-shadow(0 0 15px #FFD700) drop-shadow(0 0 30px #FF6B35);
+        transform: translateX(-50%) scale(1);
+      }
+      25% { 
+        background-position: 25% 50%;
+        filter: drop-shadow(0 0 20px #FF1493) drop-shadow(0 0 40px #00CED1);
+        transform: translateX(-50%) scale(1.02);
+      }
+      50% { 
+        background-position: 50% 50%;
+        filter: drop-shadow(0 0 25px #00CED1) drop-shadow(0 0 50px #FFD700);
+        transform: translateX(-50%) scale(1.05);
+      }
+      75% { 
+        background-position: 75% 50%;
+        filter: drop-shadow(0 0 20px #F7931E) drop-shadow(0 0 40px #FF1493);
+        transform: translateX(-50%) scale(1.02);
       }
     }
 
+    @keyframes heading-float {
+      0%, 100% { transform: translateX(-50%) translateY(0px); }
+      50% { transform: translateX(-50%) translateY(-15px); }
+    }
+
+    .main-heading:hover {
+      animation: heading-excited 0.6s ease-in-out infinite;
+    }
+
+    @keyframes heading-excited {
+      0%, 100% { transform: translateX(-50%) rotate(-3deg) scale(1.08); }
+      25% { transform: translateX(-50%) rotate(3deg) scale(1.12); }
+      50% { transform: translateX(-50%) rotate(-2deg) scale(1.15); }
+      75% { transform: translateX(-50%) rotate(2deg) scale(1.12); }
+    }
+    
+    /* Graffiti Elements */
+    .graffiti {
+      position: absolute;
+      font-weight: bold;
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0.7;
+      transform-origin: center;
+      font-family: 'Fredoka One', cursive;
+    }
+
+    .graffiti-1 {
+      top: 15%;
+      left: 15%;
+      color: #FF6B6B;
+      font-size: 24px;
+      transform: rotate(-15deg);
+      animation: graffiti-pulse 4s ease-in-out infinite;
+    }
+
+    .graffiti-2 {
+      top: 25%;
+      right: 20%;
+      color: #4ECDC4;
+      font-size: 18px;
+      transform: rotate(12deg);
+      animation: graffiti-bounce 3s ease-in-out infinite;
+    }
+
+    .graffiti-3 {
+      bottom: 15%;
+      left: 10%;
+      color: #45B7D1;
+      font-size: 20px;
+      transform: rotate(-8deg);
+      animation: graffiti-shake 5s ease-in-out infinite;
+    }
+
+    .graffiti-4 {
+      bottom: 25%;
+      right: 15%;
+      color: #96CEB4;
+      font-size: 22px;
+      transform: rotate(18deg);
+      animation: graffiti-float 6s ease-in-out infinite;
+    }
+
+    .graffiti-5 {
+      top: 50%;
+      left: 5%;
+      color: #FFEAA7;
+      font-size: 16px;
+      transform: rotate(-25deg);
+      animation: graffiti-wiggle 4.5s ease-in-out infinite;
+    }
+
+    .graffiti-6 {
+      top: 60%;
+      right: 8%;
+      color: #DDA0DD;
+      font-size: 19px;
+      transform: rotate(22deg);
+      animation: graffiti-spin 7s linear infinite;
+    }
+
+    /* Graffiti Animations */
+    @keyframes graffiti-pulse {
+      0%, 100% { transform: rotate(-15deg) scale(1); opacity: 0.7; }
+      50% { transform: rotate(-15deg) scale(1.1); opacity: 1; }
+    }
+
+    @keyframes graffiti-bounce {
+      0%, 100% { transform: rotate(12deg) translateY(0px); }
+      50% { transform: rotate(12deg) translateY(-10px); }
+    }
+
+    @keyframes graffiti-shake {
+      0%, 100% { transform: rotate(-8deg) translateX(0px); }
+      25% { transform: rotate(-8deg) translateX(-3px); }
+      75% { transform: rotate(-8deg) translateX(3px); }
+    }
+
+    @keyframes graffiti-float {
+      0%, 100% { transform: rotate(18deg) translateY(0px); opacity: 0.7; }
+      50% { transform: rotate(18deg) translateY(-15px); opacity: 1; }
+    }
+
+    @keyframes graffiti-wiggle {
+      0%, 100% { transform: rotate(-25deg); }
+      25% { transform: rotate(-30deg); }
+      75% { transform: rotate(-20deg); }
+    }
+
+    @keyframes graffiti-spin {
+      0% { transform: rotate(22deg); }
+      100% { transform: rotate(382deg); }
+    }
+    
+    /* Decorative elements matching the image style */
+    .decorative-stripe {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      background: linear-gradient(180deg, #8B0000, #DC143C, #FF6347, #8B0000);
+      border-radius: 30px 0 0 30px;
+      box-shadow: inset 5px 0 15px rgba(0,0,0,0.3);
+    }
+    
+    .decorative-stripe::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 20%;
+      bottom: 20%;
+      width: 30px;
+      background: linear-gradient(180deg, #B22222, #FF4500);
+      border-radius: 15px;
+      box-shadow: inset 2px 0 8px rgba(0,0,0,0.2);
+    }
+    
+    /* Main container following the exact layout */
+    .main-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      position: relative;
+      z-index: 10;
+      margin-top: 120px;
+    }
+    
+    /* Bumblebee Character - Center */
+    .bumblebee-character {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 20;
+      position: relative;
+    }
+    
+    .robot-body {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 20px;
+      animation: robot-sway 4s ease-in-out infinite;
+      filter: drop-shadow(10px 15px 20px rgba(0,0,0,0.4));
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .robot-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
+      padding: 10px;
+      box-shadow: 
+        0 0 30px rgba(255, 215, 0, 0.5),
+        inset 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+    
+    @keyframes robot-sway {
+      0%, 100% { transform: rotate(-3deg) translateY(0px); }
+      50% { transform: rotate(3deg) translateY(-10px); }
+    }
+    
+    .robot-body:hover {
+      animation: robot-excited 0.5s ease-in-out infinite;
+      transform: scale(1.1);
+    }
+    
+    @keyframes robot-excited {
+      0%, 100% { transform: scale(1.1) rotate(-5deg); }
+      50% { transform: scale(1.15) rotate(5deg); }
+    }
+    
+    .autobot-logo {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 30px;
+      color: #DC143C;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      animation: logo-pulse 3s ease-in-out infinite;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @keyframes logo-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.1); }
+    }
+    
+    /* User Input Bubble - Left */
+    .user-bubble {
+      position: relative;
+      background: linear-gradient(135deg, #E6E6FA, #F8F8FF);
+      border: 4px solid #9370DB;
+      border-radius: 25px;
+      padding: 25px 30px;
+      max-width: 300px;
+      box-shadow: 
+        0 10px 25px rgba(0,0,0,0.2),
+        inset 0 2px 5px rgba(255,255,255,0.5);
+      animation: bubble-float 3s ease-in-out infinite;
+      margin-right: 50px;
+    }
+    
+    @keyframes bubble-float {
+      0%, 100% { transform: translateY(0px) rotate(1deg); }
+      50% { transform: translateY(-8px) rotate(-1deg); }
+    }
+    
+    .user-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      right: 30px;
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 15px solid #9370DB;
+    }
+    
+    .user-bubble::before {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      right: 33px;
+      width: 0;
+      height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 12px solid #E6E6FA;
+    }
+    
+    .input-container {
+      position: relative;
+    }
+    
+    .user-input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      font-size: 18px;
+      font-family: 'Comic Neue', cursive;
+      color: #4B0082;
+      font-weight: bold;
+      outline: none;
+      padding: 10px 50px 10px 10px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .user-input::placeholder {
+      color: #9370DB;
+      font-style: italic;
+    }
+    
+    .user-input:focus {
+      background: rgba(255,255,255,0.3);
+      transform: scale(1.02);
+    }
+    
+    .mic-icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: #4B0082;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: mic-pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes mic-pulse {
+      0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.7; }
+      50% { transform: translateY(-50%) scale(1.1); opacity: 1; }
+    }
+    
+    .mic-icon:hover {
+      transform: translateY(-50%) scale(1.3);
+      animation: mic-active 0.3s ease-in-out infinite;
+    }
+    
+    @keyframes mic-active {
+      0%, 100% { color: #4B0082; }
+      50% { color: #FF6347; }
+    }
+    
+    .send-button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(45deg, #FFD700, #FFA500);
+      border: 3px solid #FF8C00;
+      border-radius: 20px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 16px;
+      color: #4B0082;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 6px 0 #FF8C00, 0 10px 15px rgba(0,0,0,0.2);
+    }
+    
+    .send-button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 9px 0 #FF8C00, 0 15px 20px rgba(0,0,0,0.3);
+      animation: button-glow 0.5s ease-in-out infinite;
+    }
+    
+    @keyframes button-glow {
+      0%, 100% { box-shadow: 0 9px 0 #FF8C00, 0 15px 20px rgba(0,0,0,0.3), 0 0 20px #FFD700; }
+      50% { box-shadow: 0 9px 0 #FF8C00, 0 15px 20px rgba(0,0,0,0.3), 0 0 40px #FFD700; }
+    }
+    
+    .send-button:active {
+      transform: translateY(2px) scale(0.98);
+      box-shadow: 0 4px 0 #FF8C00, 0 6px 10px rgba(0,0,0,0.2);
+    }
+    
+    /* GIF Response Bubble - Right */
+    .response-bubble {
+      position: relative;
+      background: linear-gradient(135deg, #F0F8FF, #E0F6FF);
+      border: 4px solid #4682B4;
+      border-radius: 25px;
+      padding: 25px 30px;
+      max-width: 350px;
+      min-height: 200px;
+      box-shadow: 
+        0 10px 25px rgba(0,0,0,0.2),
+        inset 0 2px 5px rgba(255,255,255,0.5);
+      animation: bubble-float-right 3.5s ease-in-out infinite;
+      margin-left: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @keyframes bubble-float-right {
+      0%, 100% { transform: translateY(0px) rotate(-1deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+    
+    .response-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 30px;
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 15px solid #4682B4;
+    }
+    
+    .response-bubble::before {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 33px;
+      width: 0;
+      height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 12px solid #F0F8FF;
+    }
+    
+    .response-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 18px;
+      color: #2F4F4F;
+      margin-bottom: 15px;
+      text-align: center;
+      animation: title-shimmer 2s ease-in-out infinite;
+    }
+    
+    @keyframes title-shimmer {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    .gif-container {
+      width: 100%;
+      text-align: center;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      background: linear-gradient(45deg, #E0F6FF, #F0F8FF);
+      border: 2px dashed #4682B4;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .gif-container img {
+      max-width: 100%;
+      max-height: 200px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      animation: gif-entrance 1s ease-out;
+    }
+    
+    @keyframes gif-entrance {
+      0% { opacity: 0; transform: scale(0.5) rotate(180deg); }
+      50% { opacity: 0.7; transform: scale(1.1) rotate(90deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+    
+    .gif-placeholder {
+      color: #4682B4;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      animation: placeholder-bounce 2s ease-in-out infinite;
+    }
+    
+    @keyframes placeholder-bounce {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    /* Status indicator */
+    .status-indicator {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 200;
+    }
+    
+    .status-indicator.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(10px);
+    }
+    
+    .status-indicator.listening {
+      background: linear-gradient(45deg, #00CED1, #48D1CC);
+      animation: pulse-glow 1s ease-in-out infinite;
+    }
+    
+    .status-indicator.thinking {
+      background: linear-gradient(45deg, #FF69B4, #FFB6C1);
+      animation: thinking-dots 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(0, 206, 209, 0.5); }
+      50% { box-shadow: 0 0 40px rgba(0, 206, 209, 0.8); }
+    }
+    
+    @keyframes thinking-dots {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    /* Audio Control Button */
+    .audio-control {
+      position: absolute;
+      top: 20px;
+      right: 80px;
+      background: linear-gradient(45deg, #FF6B35, #F7931E);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      z-index: 200;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    
+    .audio-control:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .main-heading {
+        font-size: 3rem;
+        top: 5%;
+        letter-spacing: 4px;
+      }
+      
+      .main-container {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        margin-top: 100px;
+      }
+      
+      .user-bubble, .response-bubble {
+        margin: 0;
+        max-width: 90%;
+      }
+      
+      .robot-body {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .decorative-stripe {
+        display: none;
+      }
+      
+      .graffiti {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .main-heading {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+      }
+      
+      .robot-body {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .user-bubble, .response-bubble {
+        padding: 20px;
+        max-width: 95%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Large Animated Heading -->
+  <h1 class="main-heading" onclick="playHeadingSound()">DuMBle BEE</h1>
+  
+  <!-- Audio Control Button -->
+  <button class="audio-control" onclick="toggleAudio()" title="Toggle Background Sound">🔊</button>
+  
+  <!-- Background Audio -->
+  <audio id="bgAudio" loop>
+    <source src="https://www.soundjay.com/misc/sounds/sci-fi-sounds/space-ambient.mp3" type="audio/mpeg">
+  </audio>
+  
+  <!-- Graffiti Elements -->
+  <div class="graffiti graffiti-1">POW!</div>
+  <div class="graffiti graffiti-2">BOOM</div>
+  <div class="graffiti graffiti-3">ZAP⚡</div>
+  <div class="graffiti graffiti-4">AWESOME</div>
+  <div class="graffiti graffiti-5">WOW</div>
+  <div class="graffiti graffiti-6">COOL!</div>
+  
+  <div class="decorative-stripe"></div>
+  
+  <div class="status-indicator" id="statusIndicator">
+    🤖 DuMBle BEE Ready!
+  </div>
+  
+  <div class="main-container">
+    <!-- User Input Bubble - Left -->
+    <div class="user-bubble">
+      <div class="input-container">
+        <input type="text" class="user-input" id="userInput" placeholder="user text">
+        <div class="mic-icon" onclick="startVoiceRecognition()" title="Voice Input">🎤</div>
+      </div>
+      <button class="send-button" onclick="handleUserInput()">Send Message</button>
+    </div>
+    
+    <!-- Bumblebee Character - Center -->
+    <div class="bumblebee-character">
+      <div class="robot-body">
+        <img src="./robot.png" alt="Robot" class="robot-image">
+        <div class="autobot-logo">⚡</div>
+      </div>
+    </div>
+    
+    <!-- GIF Response Bubble - Right -->
+    <div class="response-bubble">
+      <div class="response-title">gif response of the code</div>
+      <div class="gif-container" id="gifContainer">
+        <div class="gif-placeholder">
+          🎬 Perfect GIF will appear here!<br>
+          <span style="font-size: 14px; color: #6495ED;">Tell me your feelings...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const keywordToGifMap = {
+      "happy": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3NnaGRwZXF3dGtzMnVjbHBnb3cxdWU1N2c1d2oyMTBidjk4dTAycSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/fUQ4rhUZJYiQsas6WD/giphy.gif",
+      "joy": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmgwejMxOWl5Y2pwN2xldzB0eGlkZjEzdmtuYXJ5ZXFxNmw4ZzRnZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/61MN4zqj333nTdtLEH/giphy.gif",
+      "celebrate": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExejQ4MTVqM3hvZ3F0aDN1dWRiODVhazkxc2FpZGJkazE5ODVmbnM0dCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/YTbZzCkRQCEJa/giphy.gif",
+      "excited": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHFpb2tyZmdtYzQ4MW1yZDdwc2p0NnUxZ2ZjOXF6aXF3NGhtdGZ2ciZlcD12MV9naWZzX3NlYXJjaCZjdD1n/oF5oUYTOhvFnO/giphy.gif",
+      "yay": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHFyeHN0ZXJvc2Fsd3E1Z29xamJkNXZ2cmlvemxvNmhpMGpwdWZhYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/y8Mz1yj13s3kI/giphy.gif",
+      "awesome": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjh1dnUxa2tzOGJtZWVxN3k1OTJhZHZ1dTh6dnZsZmd0Mm1hZWQ5bSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/bHRk9PMqFGc1LRtfsM/giphy.gif",
+      "great": "hhttps://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaW42cGY4aWs4dHd4aHg5OHM3djlhbGZrZXVtcnNhOTJvOXhremJvaSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/tIeCLkB8geYtW/giphy.gif",
+      "amazing": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmpieHFibDJ5NHY3djhiM3poZXZucnRsY2I1Njd2Mm9nNDJ2eGEybyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Z7B5JnsvU0wWUQneQG/giphy.gif",
+      "good": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2Fvb2p0Zjk3NzBicDRiejdobjJzYWpyanVrZGttZG91cndoc2FrMiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/J8FZIm9VoBU6Q/giphy.gif",
+      
+      "sad": "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm56Mmo2bWx5bDZocG1nZGszeHJmbDA1YnF0bHFwa3ZkNDUwcjI1ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9Y5BbDSkSTiY8/giphy.gif",
+      "crying": "hhttps://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmJnaXVmeXdhdTZwbm9iOGFudWdndWRoazY0bDY1ZjM1MTRpaXVkeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iJJ6E58EttmFqgLo96/giphy.gif",
+      "heartbroken": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaW1nYmo5eHBtaG42b2Nmc3Z2eDNjOXN4aHBydTV1bTQ1OWJsZ2JwOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ftdjO4qK3toNIsIynN/giphy.gif",
+      "down": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNno1b3F0eThtbjBrMDhiOG5nMnAxamczdGxhN2duZjhrZ3R4eGxjOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Bvtnx9Wwcuy6VNET5z/giphy.gif",
+      "depressed": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDJ3enFoNGRjZ3NseW5qdjI1eXo1dmwybzV6M2ExcW8yb2puM21iMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/GIvajz0TlE316/giphy.gif",
+      "upset": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDcyeXkzeXViNWFhZHF5N2t0dnd0YXBhdmttNHJha2JmZmE5YjU0MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l7KgNC23vgz2gasbyn/giphy.gif",
+      
+      "angry": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2Z6OHZqZzZ4bHh6bDVsOXY2aTk3d3FjNWp6dTYzazc2dmF1cWh5diZlcD12MV9naWZzX3NlYXJjaCZjdD1n/11tTNkNy1SdXGg/giphy.gif",
+      "mad": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3lrM2d6OWUxaGluamx1Nml1cnVham1hcXN0NGxkY3J2aXVnMnByMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3o7bu8mwh3U6SXtLjy/giphy.gif",
+      "frustrated": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWNxdHE3NHlrMmE2bmV2b2ppeHAyOW81c2EzZjh2YmpxN2UyOTh3OCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/OOezqqxPB8aJ2/giphy.gif",
+      "rage": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHh4NDNhcHc4MmU4ZXFyamgybXVvM3FvdnJ3Z2dpZHEwcWw2OXJ2cCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/6hE3b5HSuMrMk/giphy.gif",
+      "annoyed": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnpoOTdwYnA4Z3gwc3ZyOWtiaXA3NGFyaXQ2dDVraHBlN3o0Nm1sZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/5LU6ZcEGBbhVS/giphy.gif",
+      
+      "love": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnZyazZ4YXdpNm4yNzlxYmd2aTQwZ3ZoYWswOGkxdXE2bHliNjZmNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/buPHaNvgiNdCGPnrbG/giphy.gif",
+      "crush": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnp0N29kcHI2bTdsejMwdDV6eXQybzJva3NneTlsNm40NWhpaG8wbSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/zrxazUScjhxo4/giphy.gif",
+      "romantic": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWlhcHM5M2p0NDZmeTRtY3V5d2YxbmlieWJpY2R4dWVpbDExeWozciZlcD12MV9naWZzX3NlYXJjaCZjdD1n/nCrUTDvTMTqrt2BTIK/giphy.gif",
+      "heart": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzgxZ3BnbWJyODVkeXUzYTlmMnQzMTYyZHV1NXltOGtnNzkyMWFmbCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/VIKa3CjZDCoymNcBY5/giphy.gif",
+      
+      "funny": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjVhbjNhNjc3ZnNpN2tqZ3VxNGh6cWJkeXBocnVkbXBmZjg2NHpnOCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/gj0QdZ9FgqGhOBNlFS/giphy.gif",
+      "lol": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm12Z2FjM3Rha2tqMHRudWhtb2IwZm9jdjkzMWJiaGRzcno3bTVlOSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/fUYhyT9IjftxrxJXcE/giphy.gif",
+      "hilarious": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWJweTV2MTduOWxybXljOWE3ejg1b3pjMmt5aW53MW03czYxMWNrbSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/xT9DPzhNGA8MKjxwFG/giphy.gif",
+      "joke": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGs3aXJpYjk2YXMzdHQ0ZzNrcDJ3aWJpZzhsdW1pM3ppNXlvYXFtNCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/mEahVAkKjt0VL2o5Jk/giphy.gif",
+      "laugh": "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3N3JlZGhwZXFyazZscjF3OHliZ3llc3Q5Z3A3OG5ucTJpcTB0dXJkMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/qSACsWfLzDhYouonLE/giphy.gif",
+      
+      "confused": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmJ6eGo1engwNDd6Z2tkdzN0NGo4cWY5dm5hdzU0NXZyNjNyYm43MyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ji6zzUZwNIuLS/giphy.gif",
+      "what": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjUybmhxbHB2cThicGdtODc5bXJ0czhxazEybHd6d2oycW5wczYwMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/7Am7Ydb6CcjKg/giphy.gif",
+      "huh": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHVkeXh4ZmRlb3g1NXk1a25wb20zYTVrbTl2anYxYm96dG1kcGRhMCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/GRk3GLfzduq1NtfGt5/giphy.gif",
+      "lost": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGhnbnViNzdvZWg4dDhoenBtdHhycXZ3ODQxbWV3NjF4YWU0cXZydSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/12GUPx3g0PPfYA/giphy.gif",
+      "puzzled": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3o3MDI1Y3Y0bHFocWp5dW9pcDU0N3dkenZrM3Zzcjk0dG8zMG0yciZlcD12MV9naWZzX3NlYXJjaCZjdD1n/5M5N7Rc0y2NkJWEarU/giphy.gif",
+      
+      "tired": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXpjbTJoc2NsdHRtNGI4amJ4cHVpaWg2ZHhubnZ0c3Fnb3c0OGVzdCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/bq6F8QYqBU7Yc/giphy.gif",
+      "sleepy": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXJmcDl1bWRpaHB4eTlhd3Bud3Joc3BnbW5oeGt0emgxOWg5MTB5bSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/NWg7M1VlT101W/giphy.gif",
+      "lazy": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXY4cjNvZ2FwYjlvNHJ6eXZ2emFjdW5oNDFnZThmeGp3bHZzOWVydiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/pVkmGyqYRt4qY/giphy.gif",
+      "bored": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnIzMGYxYjllcWh1ZHhlM2JiNmQ5ZXgweXI0YXhxMnk1ZHhqY2FjeiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/4ag3blTOZzciQqmJic/giphy.gif",
+      "exhausted": "hhttps://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm04eXp2ejRmMmYxbWs3MXl5azJzM3FueDNzNXk0dHBnc3I3NWt0MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/FqdruC6cJYXxC/giphy.gif",
+      
+      "surprised": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNm16Yml3M2NxcXpwNGJmb2U5NTdwOW5jdWYzOTZiazBncXltbW13biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/vQqeT3AYg8S5O/giphy.gif",
+      "shocked": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2Y4Ym91OGp3Mzk1Z2NubHZlODh3Znc5OWtkOWZvdGdqanUzMHRmeSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/PUBxelwT57jsQ/giphy.gif",
+      "omg": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExemE3eXZhYm5sam9nbDUwc2JlYnN4OHF3b28xb2w5ZzVuOHYzeTV2cyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/57ZvMMkuBIVMlU88Yh/giphy.gif",
+      "wow": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGNxd3hhOXJqeXVpZXJ5Z2N5cHY5NHR4c25mMXFza3Nwbnp3ZW1naCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/vKHKDIdvxvN7vTAEOM/giphy.gif",
+      
+      "cool": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2dmYXJ2bmdwcGF6czJ4Nm05anZwYmFoaHd5OXd6c2pyNWt5Mzl5bCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/JUqiFbumTAPYIeM8yJ/giphy.gif",
+      "nice": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3d1ZHZqaTh6b2p1NHVjeDRidDZxbm02cXpxbzJ0bXBsendlbGY1ZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/yJFeycRK2DB4c/giphy.gif",
+      "perfect": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHl3d2JwbjRhZ3A1ZHc5eTh6cTNrcWNpZDE0cng1N3NpdzhpcG5mZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l2Sq5GffrCyUMEXjW/giphy.gif",
+      
+      "hello": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeW1ybWxybmdwd2NldXJzdjZ5ZXA4dXN1YThtbWN3YzF3enRzaTVjNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/f1BYrtrhXfXqzGft8g/giphy.gif",
+      "hi": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeW1ybWxybmdwd2NldXJzdjZ5ZXA4dXN1YThtbWN3YzF3enRzaTVjNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/qCVhQKXWIH6eEnUgGg/giphy.gif",
+      "bye": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHJjbzVqMzBrdmZueGoyMGN6em51N283dWx4eHgzNnFmYXZwYTc3dSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3ohs7KViF6rA4aan5u/giphy.gif",
+      "goodbye": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWRnM3lmcml4MHphZTE5OWt0MWlqNDcxamo5amhmMDQ0OGtycGtveiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l2JeeMSIWWXVwZcgU/giphy.gif",
+      
+      "yes": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXViajdwN3V5bTh5amVrM2pwOWh5NjkzY3F3YzduM2lkdXpjOTQybyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/J336VCs1JC42zGRhjH/giphy.gif",
+      "no": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzZkdHEwMDcxcGU5azYzNGY1Z3RhOWJzc3d5amhmc2RzMDR5amk4NCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/vyTnNTrs3wqQ0UIvwE/giphy.gif",
+      "maybe": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXdvaW5yZ3dsMGxyNHJpNGowenM0ZmZpZzYzNm5lMXJ4OHBnOGdpOSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/21I909B1Us5hsGiupn/giphy.gif",
+      
+      "dance": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjEyczUyem5qZ2c2NmdiZWtnam1xcG9kdWNlMjg2OWxxNjB0NTRvaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/tHIRLHtNwxpjIFqPdV/giphy.gif",
+      "party": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2R2cnB4b2F1aHN0czFtMTdjZWl3bTYyM2todnQxN2w4OG55NmtlNCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/blSTtZehjAZ8I/giphy.gif",
+      "music": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGh0cWhiM3k2a2Vhd2pmeGhsa3VpNmUyMnVhNms1eTlsY3I0ODkwZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/gQJyPqc6E4xoc/giphy.gif"
+    };
+
+    // Background Audio Management
+    let bgAudio = document.getElementById('bgAudio');
+    let audioPlaying = false;
+
+    // Start background audio (user interaction required)
+    function startBackgroundAudio() {
+      if (!audioPlaying) {
+        bgAudio.volume = 0.3; // Set volume to 30%
+        bgAudio.play().then(() => {
+          audioPlaying = true;
+          showStatus('🎵 Sci-Fi ambiance activated!');
+          document.querySelector('.audio-control').textContent = '🔇';
+        }).catch(e => {
+          console.log('Audio autoplay blocked:', e);
+          showStatus('🔊 Click sound button to enable audio!');
+        });
+      }
+    }
+
+    // Audio toggle function
+    function toggleAudio() {
+      if (audioPlaying) {
+        bgAudio.pause();
+        audioPlaying = false;
+        showStatus('🔇 Audio paused');
+        document.querySelector('.audio-control').textContent = '🔊';
+      } else {
+        startBackgroundAudio();
+      }
+    }
+
+    // Heading click sound effect
+    function playHeadingSound() {
+      // Create a sci-fi beep sound
+      try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        // Create a sci-fi beep pattern
+        oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+        oscillator.frequency.setValueAtTime(1200, audioContext.currentTime + 0.1);
+        oscillator.frequency.setValueAtTime(600, audioContext.currentTime + 0.2);
+        
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.3);
+        
+        showStatus('🚀 DuMBle BEE activated!');
+      } catch (e) {
+        console.log('Audio context not supported:', e);
+        showStatus('🚀 DuMBle BEE activated!');
+      }
+    }
+
+    function showStatus(message, type = '') {
+      const indicator = document.getElementById('statusIndicator');
+      indicator.textContent = message;
+      indicator.className = `status-indicator show ${type}`;
+      
+      setTimeout(() => {
+        indicator.className = 'status-indicator';
+      }, 3000);
+    }
+
+    function findMatchingGif(text) {
+      const lowerText = text.toLowerCase();
+      
+      // Direct keyword matching
+      for (const [keyword, gifUrl] of Object.entries(keywordToGifMap)) {
+        if (lowerText.includes(keyword)) {
+          return { keyword, url: gifUrl };
+        }
+      }
+      
+      // Emotion-based matching
+      const emotions = {
+        happy: ['happy', 'joy', 'glad', 'cheerful', 'excited', 'thrilled', 'elated', 'positive'],
+        sad: ['sad', 'cry', 'depressed', 'upset', 'down', 'blue', 'disappointed', 'heartbroken'],
+        angry: ['angry', 'mad', 'furious', 'rage', 'frustrated', 'annoyed', 'irritated', 'pissed'],
+        love: ['love', 'adore', 'crush', 'romantic', 'valentine', 'affection', 'passion'],
+        funny: ['funny', 'hilarious', 'comedy', 'humor', 'amusing', 'witty', 'comical', 'silly'],
+        confused: ['confused', 'puzzled', 'bewildered', 'perplexed', 'baffled', 'uncertain'],
+        tired: ['tired', 'exhausted', 'weary', 'fatigue', 'drained', 'worn', 'sleepy'],
+        surprised: ['surprised', 'amazed', 'astonished', 'stunned', 'incredible', 'unbelievable']
+      };
+
+      for (const [emotion, keywords] of Object.entries(emotions)) {
+        if (keywords.some(keyword => lowerText.includes(keyword))) {
+          const emotionGifs = Object.entries(keywordToGifMap).filter(([key]) => 
+            keywords.includes(key) || key === emotion
+          );
+          if (emotionGifs.length > 0) {
+            const randomGif = emotionGifs[Math.floor(Math.random() * emotionGifs.length)];
+            return { keyword: randomGif[0], url: randomGif[1] };
+          }
+        }
+      }
+      
+      return null;
+    }
+
+    function displayGif(gifData) {
+      const container = document.getElementById('gifContainer');
+      const responseTitle = document.querySelector('.response-title');
+      
+      if (gifData) {
+        container.innerHTML = `<img src="${gifData.url}" alt="${gifData.keyword}" title="${gifData.keyword}">`;
+        responseTitle.textContent = `Perfect match: ${gifData.keyword}! 🎯`;
+      } else {
+        // Show random GIF if no match
+        const randomGifs = Object.values(keywordToGifMap);
+        const randomGif = randomGifs[Math.floor(Math.random() * randomGifs.length)];
+        container.innerHTML = `<img src="${randomGif}" alt="Random GIF" title="Surprise GIF!">`;
+        responseTitle.textContent = 'Surprise GIF! 🎲';
+      }
+    }
+
+    function handleUserInput() {
+      const input = document.getElementById('userInput');
+      const text = input.value.trim();
+      
+      if (!text) {
+        showStatus('🤖 Please enter some text!');
+        return;
+      }
+
+      showStatus('🧠 Analyzing your message...', 'thinking');
+      
+      // Show thinking state
+      const responseTitle = document.querySelector('.response-title');
+      const gifContainer = document.getElementById('gifContainer');
+      
+      responseTitle.textContent = 'Processing your vibe... 🤔';
+      gifContainer.innerHTML = '<div class="gif-placeholder">🔄 Finding perfect GIF...<br><span style="font-size: 14px;">DuMBle BEE is thinking...</span></div>';
+      
+      setTimeout(() => {
+        const gifData = findMatchingGif(text);
+        displayGif(gifData);
+        
+        if (gifData) {
+          showStatus(`✨ Found perfect match: ${gifData.keyword}!`);
+        } else {
+          showStatus('🎲 No exact match, here\'s a surprise!');
+        }
+        
+        input.value = '';
+      }, 2000);
+    }
+
     function startVoiceRecognition() {
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        showStatus('🚫 Voice recognition not supported!');
+        return;
+      }
+
       const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
       recognition.lang = 'en-US';
+      recognition.continuous = false;
+      recognition.interimResults = false;
+
+      showStatus('🎤 Listening... Speak now!', 'listening');
+
       recognition.start();
 
-      document.getElementById('status').innerText = 'Listening...';
       recognition.onresult = function(event) {
         const transcript = event.results[0][0].transcript;
         document.getElementById('userInput').value = transcript;
-        handleUserInput();
+        showStatus(`✅ I heard: "${transcript}"`);
+        
+        setTimeout(() => {
+          handleUserInput();
+        }, 1000);
       };
+
       recognition.onerror = function(event) {
-        document.getElementById('status').innerText = `Error: ${event.error}`;
+        showStatus(`❌ Voice error: ${event.error}`);
+      };
+
+      recognition.onend = function() {
+        // Recognition ended
       };
     }
+
+    // Enter key support
+    document.getElementById('userInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        handleUserInput();
+      }
+    });
+
+    // Robot hover effects
+    document.querySelector('.robot-body').addEventListener('mouseenter', function() {
+      showStatus('🤖 DuMBle BEE is excited to help!');
+    });
+
+    // Dynamic placeholder text
+    const placeholders = [
+      'user text',
+      'Tell me how you feel...',
+      'I\'m happy today!',
+      'Feeling confused...',
+      'So excited!',
+      'Kind of sad...',
+      'This is funny!',
+      'I love this!'
+    ];
+
+    let placeholderIndex = 0;
+    setInterval(() => {
+      const input = document.getElementById('userInput');
+      if (!input.value) {
+        placeholderIndex = (placeholderIndex + 1) % placeholders.length;
+        input.placeholder = placeholders[placeholderIndex];
+      }
+    }, 3000);
+
+    // Welcome message
+    setTimeout(() => {
+      showStatus('🤖 DuMBle BEE online! Share your feelings!');
+    }, 1000);
+
+    // Mic icon click animation
+    document.querySelector('.mic-icon').addEventListener('click', function() {
+      this.style.animation = 'mic-active 0.3s ease-in-out 3';
+    });
+
+    // Robot click interaction
+    document.querySelector('.robot-body').addEventListener('click', function() {
+      const responses = [
+        '🤖 Beep boop! Ready to find GIFs!',
+        '⚡ Transformer powers activated!',
+        '🎯 Target: Perfect meme acquired!',
+        '🔧 All systems operational!',
+        '🌟 DuMBle BEE at your service!'
+      ];
+      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+      showStatus(randomResponse);
+    });
+
+    // Auto-hide status after longer period for better UX
+    let statusTimeout;
+    function showStatusWithAutoHide(message, type = '') {
+      const indicator = document.getElementById('statusIndicator');
+      indicator.textContent = message;
+      indicator.className = `status-indicator show ${type}`;
+      
+      clearTimeout(statusTimeout);
+      statusTimeout = setTimeout(() => {
+        indicator.className = 'status-indicator';
+      }, 4000);
+    }
+
+    // Update the showStatus function to use auto-hide
+    showStatus = showStatusWithAutoHide;
+
+    // Try to start audio on first user interaction
+    document.addEventListener('click', function() {
+      if (!audioPlaying) {
+        // Don't auto-start, let user click the audio button
+      }
+    }, { once: true });
   </script>
 </body>
 </html>
