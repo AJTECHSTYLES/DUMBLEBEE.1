@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bumblebee MemeBot (Offline)</title>
+  <style>
+    body { font-family: Arial; background-color: #111; color: #fff; text-align: center; padding: 40px; }
+    input, button { padding: 10px; font-size: 16px; margin: 10px; border-radius: 5px; border: none; }
+    input { width: 60%; }
+    button { background-color: #ffc107; cursor: pointer; }
+    button:hover { background-color: #ff9800; }
+    img, video, audio { margin-top: 20px; max-width: 90%; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <h1>✨ Bumblebee MemeBot (Offline Version) ✨</h1>
+  <input type="text" id="userInput" placeholder="Say something..." />
+  <button onclick="handleUserInput()">Send</button>
+  <button onclick="startVoiceRecognition()">🎤 Speak</button>
+  <p id="status"></p>
+  <div id="memeResult"></div>
+
+  <script>
+    const memeLibrary = {
+  sad: {
+    title: "SRK Crying",
+    type: "gif",
+    file: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaW13dDQweml6NGtvd3p2cGEzZGJ2N3Y2ZWVmaDVtZWloc21ydGhrdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d2lcHJTG5Tscg/giphy.gif"
+  },
+  happy: {
+    title: "Allu Arjun Dance",
+    type: "gif",
+    file: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3kzaWZyMWl5ZTNjNW16NzN2NGloYWlhdWs2MjNlZjAzODNheWY5ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2gLxx75OmfCaNu2yI8/giphy.gif"
+  },
+  angry: {
+    title: "Vijay Sethupathi Intense",
+    type: "gif",
+    file: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnlqOWt2aWlsY3VqdGZpbXl2azEzNzdiMHN2MnVsem5mMnQ0MjRlNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/11tTNkNy1SdXGg/giphy.gif"
+  },
+  love: {
+    title: "Kabir Singh Scene",
+    type: "gif",
+    file: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWN5bnFrdjllNnN4eGQ3d3ZqMDZpdmJ6b3kwNDJ6Z2dsYTZ4MmR5cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7OVCzw8yy9IgaLgW1A/giphy.gif"
+  },
+  sarcasm: {
+    title: "Vadivelu Reaction",
+    type: "gif",
+    file: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYW9nY29jd29zYWM4enVzdzU0MTJkOXEzdWUyNnRnYWdmZDRobjdxaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26n7aXfN2TGsJLYC4/giphy.gif"
+  },
+  excited: {
+    title: "KGF BGM",
+    type: "gif",
+    file: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2NlZzlnaXl1cGk3bXo4NWpoM2V2MTBmbDJzNm5mMXlyajg4NnU5aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K1wWpRWxRc2FseMy5f/giphy.gif"
+  },
+  confused: {
+    title: "Mr. Bean Confused",
+    type: "gif",
+    file: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzBnNXhyYWd4bThjbGM2MzlsajJnbXl4enB6cmZvcGUxcDJlMmw5NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/U6vLDuMCTRarOwcf7S/giphy.gif"
+  },
+  random: {
+    title: "Surprise Meme",
+    type: "gif",
+    file: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDUzcGRoMXZjdG45OWV1czgxejFubXJnMmo4bWdkZTM3N3dndGdzMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PUBxelwT57jsQ/giphy.gif"
+  }
+};
+
+    function getTagFromTextOffline(userText) {
+      const text = userText.toLowerCase();
+
+      if (text.includes("sad") || text.includes("cry") || text.includes("depressed")) return "sad";
+      if (text.includes("happy") || text.includes("joy") || text.includes("yay")) return "happy";
+      if (text.includes("angry") || text.includes("mad") || text.includes("rage") || text.includes("nonsense")) return "angry";
+      if (text.includes("love") || text.includes("crush") || text.includes("heart")) return "love";
+      if (text.includes("sarcasm") || text.includes("funny") || text.includes("ironic")) return "sarcasm";
+      if (text.includes("excited") || text.includes("awesome") || text.includes("hyped")) return "excited";
+      if (text.includes("confused") || text.includes("what") || text.includes("eh")) return "confused";
+
+      return "random";
+    }
+
+    function handleUserInput() {
+      const text = document.getElementById('userInput').value;
+      if (!text) return;
+      document.getElementById('status').innerText = 'Thinking...';
+
+      const tag = getTagFromTextOffline(text);
+      document.getElementById('status').innerText = `Tag: ${tag}`;
+      showEmbeddedMeme(tag);
+    }
+
+    function showEmbeddedMeme(tag) {
+      const meme = memeLibrary[tag] || memeLibrary['random'];
+      const container = document.getElementById('memeResult');
+
+      if (meme.type === 'gif') {
+        container.innerHTML = `<img src="${meme.file}" alt="${meme.title}">`;
+      } else if (meme.type === 'video') {
+        container.innerHTML = `<video controls autoplay><source src="${meme.file}" type="video/mp4"></video>`;
+      } else if (meme.type === 'audio') {
+        container.innerHTML = `<p>${meme.title}</p><audio controls autoplay src="${meme.file}"></audio>`;
+      }
+    }
+
+    function startVoiceRecognition() {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = 'en-US';
+      recognition.start();
+
+      document.getElementById('status').innerText = 'Listening...';
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById('userInput').value = transcript;
+        handleUserInput();
+      };
+      recognition.onerror = function(event) {
+        document.getElementById('status').innerText = `Error: ${event.error}`;
+      };
+    }
+  </script>
+</body>
+</html>
