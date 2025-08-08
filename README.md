@@ -33,7 +33,7 @@ For Software:
 For Software: Any software if Html, css, js is installed and funtioning
 
 # Screenshots
-![Project Preview] building in vs code <img width="1919" height="870" alt="Screenshot 2025-08-09 042031" src="https://github.com/user-attachments/assets/7546095a-0957-488f-b0e0-abe7b066847d" />
+![Project Preview]<img width="1919" height="870" alt="Screenshot 2025-08-09 042031" src="https://github.com/user-attachments/assets/7546095a-0957-488f-b0e0-abe7b066847d" />
 
 ![Project Preview]<img width="1919" height="850" alt="Screenshot 2025-08-09 042602" src="https://github.com/user-attachments/assets/07dbac96-c29f-4a06-9208-1a3088267019" />
 
