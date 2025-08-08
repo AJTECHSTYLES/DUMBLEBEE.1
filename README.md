@@ -47,6 +47,9 @@ For Software: Any software if Html, css, js is installed and funtioning
 ![Project Preview] initail ui connection interface <img width="1919" height="870" alt="Screenshot 2025-08-09 043553" src="https://github.com/user-attachments/assets/0b3f86b3-c1ba-4087-a96b-0d65c1690b72" />
 
 
+#project display link: https://ajtechstyles.github.io/DUMBLEBEE.1/
+
+
 
 
 ## Team Contributions
