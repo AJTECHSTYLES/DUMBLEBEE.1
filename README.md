@@ -1,73 +1,57 @@
-[DumBleBEE.1] 🎯
-Basic Details
-Team Name: [MARATHAKAM]
-Team Members
-Team Lead: [AKASH P R] - []
-Member 2: [Name] - [College]
-Member 3: [Name] - [College]
-Project Description
-[2-3 lines about what your project does]
+<img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
-The Problem (that doesn't exist)
-[SOCIAL meme anxiety?]
 
-The Solution (that nobody asked for)
-[makes them more attached to meme culture]
+# DumBleBEE.1 🎯
 
-Technical Details
-Technologies/Components Used
+
+## Basic Details
+### Team Name: MARATHAKAM
+
+
+### Team Members
+- Team Lead: AKASH P R - ICCS College of Engineering & Management
+- Member 2: SANDHRA REJI - ICCS College of Engineering & Management
+
+### Project Description
+A fun and interactive chatbot that responds to your **text or voice input** with **GIFs and memes** based on the keywords you use.  
+DumBleBEE understands multiple emotions, reactions, and expressions and returns **accurate, updated GIFs** from Giphy/Tenor.
+### The Problem (that doesn't exist)
+the lack of meme culture in soceity.
+
+### The Solution (that nobody asked for)
+You can use the webpage and get the accurate memes and have fun......
+
+## Technical Details
+### Technologies/Components Used
+For Software:
+- Html,Css,Js
+- Chatgpt-5
+- Vs Code
+
+
+### Project Documentation
 For Software:
 
-[HTML, CSS ,JS]
-[ChatGpt-5, claude sonnet-4, canva, giphy]
+# Screenshots
+![Project Preview](./images/Screenshot 2025-08-09 042031.png)
+![Project Preview](./images/Screenshot 2025-08-09 042602.png)
 
-Implementation
-For Software:
 
-Installation
-[pre installed html and js css commands]
+# Build Photos
 
-Run
-[]
+![Project Preview]<img width="1919" height="784" alt="Screenshot 2025-08-09 043525" src="https://github.com/user-attachments/assets/466b8b93-e0cd-40b7-909b-9a1ad67798b0" />
 
-Project Documentation
-For Software:
 
-Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name) Add caption explaining what this shows
+![Project Preview]<img width="1919" height="870" alt="Screenshot 2025-08-09 043553" src="https://github.com/user-attachments/assets/0b3f86b3-c1ba-4087-a96b-0d65c1690b72" />
 
-![Screenshot2](Add screenshot 2 here with proper name) Add caption explaining what this shows
 
-![Screenshot3](Add screenshot 3 here with proper name) Add caption explaining what this shows
 
-Diagrams
-![Workflow](Add your workflow/architecture diagram here) Add caption explaining your workflow
 
-For Hardware:
+## Team Contributions
+- Akash P R
+- Sandhra Reji
+---
+Made with ❤ at TinkerHub Useless Projects 
 
-Schematic & Circuit
-![Circuit](Add your circuit diagram here) Add caption explaining connections
-
-![Schematic](Add your schematic diagram here) Add caption explaining the schematic
-
-Build Photos
-![Components](Add photo of your components here) List out all components shown
-
-![Build](Add photos of build process here) Explain the build steps
-
-![Final](Add photo of final product here) Explain the final build
-
-Project Demo
-Video
-[Add your demo video link here] Explain what the video demonstrates
-
-Additional Demos
-[Add any extra demo materials/links]
-
-Team Contributions
-[Name 1]: [Specific contributions]
-[Name 2]: [Specific contributions]
-[Name 3]: [Specific contributions]
-Made with ❤️ at TinkerHub Useless Projects
-
-Static Badge Static Badge
+![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
+![Static Badge](https://img.shields.io/badge/UselessProjects--25-25?link=https%3A%2F%2Fwww.tinkerhub.org%2Fevents%2FQ2Q1TQKX6Q%2FUseless%2520Projects)
